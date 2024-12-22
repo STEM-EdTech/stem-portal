@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     title: "Next.js Site",
     description: "Web site created using NextJS",
     icons: {
-        icon: "/favicon.png",
-        apple: "/favicon.png",
+        icon: "/icon.jpg",
+        apple: "/icon.jpg",
     }
 };
 

@@ -1,0 +1,14 @@
+{
+    "extends": "next/core-web-vitals",
+    "rules": {
+        "no-restricted-imports": [
+            "error",
+            {
+                "paths": [
+                    "next/link" // Block import of next/link since we are using a localised Link version
+                ],
+                "patterns": []
+            }
+        ]
+    }
+}

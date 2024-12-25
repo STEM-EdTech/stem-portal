@@ -7,7 +7,7 @@ export const routing = defineRouting({
     locales: ['en', 'pl'],
     defaultLocale: 'en',
     localeDetection: false,
-    localePrefix: 'as-needed'
+    localePrefix: 'always'
 });
 
 export type LinkProps = Omit<NextLinkProps, 'locale'> & {

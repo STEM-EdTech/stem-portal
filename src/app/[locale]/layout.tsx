@@ -42,8 +42,8 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
         notFound();
     }
 
-    const messages = await getMessages();
     setRequestLocale(locale);
+    const messages = await getMessages({ locale });
 
     return (
         <html lang={locale}>

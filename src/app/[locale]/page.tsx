@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Home({ params }: NextPageProps) {
     const { locale } = await params;
     setRequestLocale(locale);
-    const t = await getTranslations("HomePage");
+    const t = await getTranslations({ locale, namespace: "HomePage" });
 
     return (
         <>

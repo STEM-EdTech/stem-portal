@@ -2,5 +2,20 @@
     "HomePage": {
         "seo__title": "Strona główna",
         "seo__description": "To jest strona główna"
+    },
+    "LogInPage": {
+        "seo__title": "Log In Page",
+        "seo__description": "This is the log in page",
+        "form__title": "Log In",
+        "form__email": "Email",
+        "form__password": "Password",
+        "form__submit": "Log In",
+        "form__register": "Register",
+        "form__forgotPassword": "Forgot password?",
+        "form__email__error": "Email is required",
+        "form__email__invalid": "Invalid email",
+        "form__password__error": "Password is required",
+        "form__password__invalid": "Password must be at least 6 characters long",
+        "form__submit__error": "Invalid email or password"
     }
 }

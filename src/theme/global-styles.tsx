@@ -32,6 +32,8 @@ export const GlobalStyles = () => {
                 }
                 body {
                     line-height: 1;
+                    overflow: hidden;
+                    width: 100%;
                 }
                 ol, ul {
                     list-style: none;
@@ -50,6 +52,8 @@ export const GlobalStyles = () => {
                 }
                 html {
                     color: ${theme.palette.text};
+                    overflow: hidden;
+                    width: 100%;
                 }
                 body, main {
                     background-color: ${theme.palette.primary[50]};

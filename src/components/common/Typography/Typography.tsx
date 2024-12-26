@@ -36,7 +36,7 @@ export const StyledH1 = styled.h1`
     font-weight: 500;
     line-height: 70px;
     text-transform: uppercase;
-    color: ${({ theme }) => theme.palette.main};
+    color: ${({ theme }) => theme.palette.text};
     margin-block-start: 18px;
     text-align: center;
 `;

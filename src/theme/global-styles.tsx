@@ -51,15 +51,12 @@ export const GlobalStyles = () => {
                 html {
                     color: ${theme.palette.text};
                 }
-                body {
-                    background-color: ${theme.palette.specialColours.body};
-                }
-                main {
-                    background-color: ${theme.palette.textBackground};
+                body, main {
+                    background-color: ${theme.palette.primary[50]};
                 }
 
                 a {
-                    color: ${theme.palette.light};
+                    color: ${theme.palette.accent[500]};
                     text-decoration: none;
                 }
 
@@ -68,7 +65,7 @@ export const GlobalStyles = () => {
                 }
 
                 h1, h2, h3, h4, h5, h6 {
-                    color: ${theme.palette.main};
+                    color: ${theme.palette.text};
                 }
             `}
         />

@@ -24,7 +24,23 @@ Backend:
 
 ### Getting Started
 
-To get started, clone the repository and run the following commands:
+To get started, clone the repository and set up the environment variables.
+
+#### Setting Up Environment Variables
+
+To configure the environment variables, copy the `.env.example` file to `.env`:
+
+```bash
+cp .env.example .env.local
+```
+
+The only environment variable that is mandatory is the `AUTH_SECRET`. This is a random value used by the Auth.js library to encrypt tokens and email verification hashes. You can generate one via the official Auth.js CLI by running:
+
+```bash
+npx auth secret
+```
+
+#### Running the Project
 
 ```bash
 pnpm install

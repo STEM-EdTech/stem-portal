@@ -18,5 +18,20 @@
         "form__password__error": "Hasło jest wymagane",
         "form__password__invalid": "Hasło musi mieć co najmniej 6 znaków",
         "form__submit__error": "Nieprawidłowy email lub hasło"
+    },
+    "RegisterPage": {
+        "seo__title": "Zarejestruj",
+        "seo__description": "To jest strona rejestracji",
+        "form__title": "Zarejestruj",
+        "form__email": "Email",
+        "form__password": "Hasło",
+        "form__confirm_password": "Potwierdź hasło",
+        "form__submit": "Zarejestruj",
+        "form__login": "Zaloguj",
+        "form__email__error": "Email jest wymagany",
+        "form__email__invalid": "Nieprawidłowy email",
+        "form__password__error": "Hasło jest wymagane",
+        "form__password__invalid": "Hasło musi mieć co najmniej 6 znaków",
+        "form__submit__error": "Email jest już zajęty"
     }
 }

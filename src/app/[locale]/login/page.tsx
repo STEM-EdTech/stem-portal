@@ -1,8 +1,10 @@
 import React from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
-import { signIn } from "~/auth";
+import { login } from "./actions";
 import { LoginPageContainer, LoginForm, TextInput, SubmitButton } from "~/app/[locale]/login/_components";
+import { emailRegex } from "~/lib/zod";
+import { Link } from "~/i18n/routing";
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations("LogInPage");
@@ -20,19 +22,14 @@ export default async function LogInPage({ params }: NextPageProps) {
 
     return (
         <LoginPageContainer>
-            <LoginForm
-                action={async (formData) => {
-                    "use server";
-                    await signIn("credentials", formData);
-                }}
-            >
+            <LoginForm action={login}>
                 <label>
                     {t("form__email")}
                     <TextInput
                         name="email"
                         type="email"
                         autoComplete="email"
-                        pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/"
+                        pattern={emailRegex.toString()}
                         required
                     />
                 </label>
@@ -48,7 +45,8 @@ export default async function LogInPage({ params }: NextPageProps) {
                     />
                 </label>
                 <input type="hidden" name="redirectTo" value="/" />
-                <SubmitButton>{t("form__log_in")}</SubmitButton>
+                <SubmitButton type="submit">{t("form__log_in")}</SubmitButton>
+                <Link href="/register">{t("form__register")}</Link>
             </LoginForm>
         </LoginPageContainer>
     );

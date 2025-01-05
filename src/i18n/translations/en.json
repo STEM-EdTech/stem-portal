@@ -18,5 +18,20 @@
         "form__password__error": "Password is required",
         "form__password__invalid": "Password must be at least 6 characters long",
         "form__submit__error": "Invalid email or password"
+    },
+    "RegisterPage": {
+        "seo__title": "Register",
+        "seo__description": "This is the register page",
+        "form__title": "Register",
+        "form__email": "Email",
+        "form__password": "Password",
+        "form__confirm_password": "Confirm password",
+        "form__submit": "Register",
+        "form__login": "Log In",
+        "form__email__error": "Email is required",
+        "form__email__invalid": "Invalid email",
+        "form__password__error": "Password is required",
+        "form__password__invalid": "Password must be at least 8 characters long",
+        "form__submit__error": "Email is already taken"
     }
 }

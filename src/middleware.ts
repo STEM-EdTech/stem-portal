@@ -1,22 +1,24 @@
 import createIntlMiddleware from "next-intl/middleware";
-import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { auth } from "~/auth";
+import { updateSession as authMiddleware } from '~/lib/supabase/authMiddleware';
 import { routing } from "~/i18n/routing";
 
 const { defaultLocale, localePrefix, locales } = routing;
 
 const publicPages = [
-    "/unauthorized"
+    "/unauthorized",
+    "/error"
 ];
 
-const authPages = ["/login", "/register", "/forgot-password", "/reset-password"];
+const authPages = ["/login", "/register", "/auth/confirm", "/forgot-password", "/reset-password"];
 
 const testPathnameRegex = (pages: string[], pathName: string): boolean => {
-    return RegExp(
-        `^(/(${locales.join("|")}))?(${pages.flatMap((p) => (p === "/" ? ["", "/"] : p)).join("|")})/?$`,
+    const locale = locales.join("|");
+    const regex = new RegExp(
+        `^(/(${locale}))?(${pages.flatMap((p) => (p === "/" ? ["", "\/"] : p.replaceAll("/", "\/"))).join("|")}).*`,
         "i"
-    ).test(pathName);
+    );
+    return regex.test(pathName);
 };
 
 const intlMiddleware = createIntlMiddleware({
@@ -25,35 +27,20 @@ const intlMiddleware = createIntlMiddleware({
     localePrefix
 });
 
-const authMiddleware = auth((req) => {
-    const isAuthPage = testPathnameRegex(authPages, req.nextUrl.pathname);
-    const session = req.auth;
-
-    // Redirect to login page if not authenticated
-    if (!session && !isAuthPage) {
-        return NextResponse.redirect(new URL("/login", req.nextUrl));
-    }
-
-    // Redirect to home page if authenticated and trying to access auth pages
-    if (session && isAuthPage) {
-        return NextResponse.redirect(new URL("/", req.nextUrl));
-    }
-
-    return intlMiddleware(req);
-});
-
 const middleware = (req: NextRequest) => {
     const isPublicPage = testPathnameRegex(publicPages, req.nextUrl.pathname);
     const isAuthPage = testPathnameRegex(authPages, req.nextUrl.pathname);
 
+    const intlMiddlewareFn = intlMiddleware(req);
+
     if (isAuthPage) {
-        return (authMiddleware as any)(req);
+        return authMiddleware(req, intlMiddlewareFn);
     }
 
     if (isPublicPage) {
-        return intlMiddleware(req);
+        return intlMiddlewareFn;
     } else {
-        return (authMiddleware as any)(req);
+        return authMiddleware(req, intlMiddlewareFn);
     }
 };
 

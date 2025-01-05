@@ -1,3 +1,4 @@
+import '~/env'; /* Import env here to validate during build */
 import createNextIntlPlugin from 'next-intl/plugin';
 
 const withNextIntl = createNextIntlPlugin();
@@ -8,7 +9,7 @@ const nextConfig = {
     compiler: {
         emotion: {
             sourceMap: true,
-            autoLabel: 'always',
+            autoLabel: 'always' as const,
             labelFormat: '[local]'
         }
     },

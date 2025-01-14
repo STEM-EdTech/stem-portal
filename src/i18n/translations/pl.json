@@ -10,6 +10,7 @@
         "form__title": "Zaloguj",
         "form__email": "Email",
         "form__password": "Hasło",
+        "form__log_in": "Zaloguj",
         "form__submit": "Zaloguj",
         "form__register": "Zarejestruj",
         "form__forgotPassword": "Zapomniałeś hasła?",

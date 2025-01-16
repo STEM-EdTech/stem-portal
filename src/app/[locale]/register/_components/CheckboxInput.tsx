@@ -3,7 +3,6 @@
 import styled from "@emotion/styled";
 
 export const CheckboxInput = styled.input`
-    display: flex;
-    align-items: center; 
+    margin-right: 10px;
     cursor: pointer;
 `;

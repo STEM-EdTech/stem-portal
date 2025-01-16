@@ -2,16 +2,22 @@
 import styled from "@emotion/styled";
 
 export const SubmitButton = styled.button`
-    padding: 10px;
+    width: 100%;
+    max-width: 368px;
+    height: 100%;
+    max-height: 52px;
+
+    padding: 15px;
     border: none;
-    border-radius: 4px;
-    background-color: ${({ theme }) => theme.palette.primary[500]};
+    border-radius: 16px;
+    background-color: #0f1a44;
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     font-family: inherit;
     cursor: pointer;
-    transition: background-color 0.2s;
+
     &:hover {
-        background-color: ${({ theme }) => theme.palette.primary[600]};
+        background-color: #0d152f;
     }
+
 `;

@@ -4,9 +4,12 @@ import styled from "@emotion/styled";
 export const RegisterForm = styled.form`
     display: flex;
     flex-direction: column;
+    position: absolute;
     gap: 24px;
     width: 100%;
-    max-width: 300px;
+    max-width: 538px;
+    height: 100%;
+    max-height: 569px;
     margin: auto;
     padding: 36px;
     border-radius: 8px;

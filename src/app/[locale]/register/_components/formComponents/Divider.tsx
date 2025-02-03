@@ -6,8 +6,8 @@ export const Divider = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
-    margin: 20px 0;
-
+    margin: 24px;
+    font-size: 14px;
     &::before,
     &::after {
         content: '';
@@ -16,9 +16,11 @@ export const Divider = styled.div`
         background-color: #ccc;
     }
     
-    span {
-        margin: 0 10px;
-        font-size: 14px;
-        color: #6b6b6b;
+    &::before {
+        margin-right: 10px; 
+    }
+
+    &::after {
+        margin-left: 10px; 
     }
 `;

@@ -6,5 +6,6 @@ export { Heading } from './Heading';
 export { Divider } from './Divider';
 export { SubHeading } from './SubHeading';
 export { FormFooter } from './FormFooter';
-export { IconInput } from './IconInput';
-export { InputContainer } from './InputContainer';
+export { CheckboxInput } from './CheckboxInput';
+export { SocialButton } from './SocialButton';
+export { SocialButtonsContainer } from './SocialButtonsContainer';

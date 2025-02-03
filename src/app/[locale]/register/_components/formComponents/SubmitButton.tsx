@@ -6,8 +6,6 @@ export const SubmitButton = styled.button`
     max-width: 368px;
     height: 100%;
     max-height: 52px;
-
-    padding: 15px;
     border: none;
     border-radius: 16px;
     background-color: #0f1a44;
@@ -15,7 +13,7 @@ export const SubmitButton = styled.button`
     font-size: 18px;
     font-family: inherit;
     cursor: pointer;
-
+    margin-top: 10px;
     &:hover {
         background-color: #0d152f;
     }

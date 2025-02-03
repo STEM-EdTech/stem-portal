@@ -2,9 +2,10 @@ import React from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { login } from "./actions";
-import { LoginPageContainer, LoginForm, TextInput, SubmitButton } from "~/app/[locale]/login/_components";
+import { LoginPageContainer, LoginForm } from "~/app/[locale]/login/_components";
 import { emailRegex } from "~/lib/zod";
 import { Link } from "~/i18n/routing";
+import { Button, TextField, Typography } from "@mui/material";
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations("LogInPage");
@@ -23,30 +24,33 @@ export default async function LogInPage({ params }: NextPageProps) {
     return (
         <LoginPageContainer>
             <LoginForm action={login}>
-                <label>
-                    {t("form__email")}
-                    <TextInput
-                        name="email"
-                        type="email"
-                        autoComplete="email"
-                        pattern={emailRegex.toString()}
-                        required
-                    />
-                </label>
-                <label>
-                    {t("form__password")}
-                    <TextInput
-                        name="password"
-                        type="password"
-                        autoComplete="current-password"
-                        minLength={8}
-                        maxLength={32}
-                        required
-                    />
-                </label>
+                <Typography variant="h5">{t("seo__title")}</Typography>
+                <TextField
+                    name="email"
+                    type="email"
+                    label={t("form__email")}
+                    autoComplete="email"
+                    slotProps={{
+                        htmlInput: { pattern: emailRegex.toString() }
+                    }}
+                    required
+                />
+
+                <TextField
+                    name="password"
+                    type="password"
+                    autoComplete="current-password"
+                    label={t("form__password")}
+                    slotProps={{
+                        htmlInput: { minLength: 8, maxLength: 32 }
+                    }}
+                    required
+                />
                 <input type="hidden" name="redirectTo" value="/" />
-                <SubmitButton type="submit">{t("form__log_in")}</SubmitButton>
-                <Link href="/register">{t("form__register")}</Link>
+                <Button variant="contained" color="primary" type="submit">{t("form__log_in")}</Button>
+                <Link href="/register" style={{
+                    color: "black"
+                }}>{t("form__register")}</Link>
             </LoginForm>
         </LoginPageContainer>
     );

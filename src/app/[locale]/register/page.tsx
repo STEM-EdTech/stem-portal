@@ -1,7 +1,8 @@
+import Button from "@mui/material/Button";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import React from 'react';
-import { Heading, RegisterForm, RegisterPageContainer, SubmitButton, TextInput } from "~/app/[locale]/register/_components";
+import { Heading, RegisterForm, RegisterPageContainer, TextInput } from "~/app/[locale]/register/_components";
 import { register } from "~/app/[locale]/register/actions";
 import { Link } from "~/i18n/routing";
 import { emailRegex } from "~/lib/zod";
@@ -56,7 +57,7 @@ export default async function RegisterPage({ params }: NextPageProps) {
                         required
                     />
                 </label>
-                <SubmitButton type="submit">{t("form__submit")}</SubmitButton>
+                <Button variant="contained" color="primary" type="submit">{t("form__submit")}</Button>
                 <Link href="/login">{t("form__login")}</Link>
             </RegisterForm>
         </RegisterPageContainer>

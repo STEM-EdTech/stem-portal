@@ -10,6 +10,6 @@ export const LoginForm = styled.form`
     margin: auto;
     padding: 36px;
     border-radius: 8px;
-    background-color: ${({ theme }) => theme.palette.primary[100]};
+    background-color: ${({ theme }) => theme.palette.primary.light};
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 `;

@@ -39,8 +39,8 @@ importers:
         specifier: ^13.1.0
         version: 13.1.0(react@19.0.0)
       interweave-autolink:
-        specifier: ^5.1.1
-        version: 5.1.1(interweave@13.1.0(react@19.0.0))(react@19.0.0)
+        specifier: ^5.1.2
+        version: 5.1.2(interweave@13.1.0(react@19.0.0))(react@19.0.0)
       interweave-ssr:
         specifier: ^2.0.0
         version: 2.0.0
@@ -1258,11 +1258,11 @@ packages:
     resolution: {integrity: sha512-4gd7VpWNQNB4UKKCFFVcp1AVv+FMOgs9NKzjHKusc8jTMhd5eL1NqQqOpE0KzMds804/yHlglp3uxgluOqAPLw==}
     engines: {node: '>= 0.4'}
 
-  interweave-autolink@5.1.1:
-    resolution: {integrity: sha512-IbIFle1DvHZYL6GLtUFWRT6BDFXnNHF106Bkkdx8J4SjjkLrftCHGVStcYRh7jEdD9uS6MeF55Oy+FvvBg12Sg==}
+  interweave-autolink@5.1.2:
+    resolution: {integrity: sha512-zcitXTUF9phyqtb99cd/dPdKNxKk+PEvFOeE/dQuNgr1pEDsxnK8HYQJxPRbJJznbdkIcSwzDIAqPT4vSjBWAA==}
     peerDependencies:
       interweave: ^13.0.0
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   interweave-ssr@2.0.0:
     resolution: {integrity: sha512-vxWOJzQsm4neGGOksKEOovOP3d6elGJ3bKnssreDIWK+luveNUvV69enU28UtX5KFx8ft1wXDa2Dk/G87DEf+A==}
@@ -3309,7 +3309,7 @@ snapshots:
       hasown: 2.0.2
       side-channel: 1.1.0
 
-  interweave-autolink@5.1.1(interweave@13.1.0(react@19.0.0))(react@19.0.0):
+  interweave-autolink@5.1.2(interweave@13.1.0(react@19.0.0))(react@19.0.0):
     dependencies:
       interweave: 13.1.0(react@19.0.0)
       react: 19.0.0

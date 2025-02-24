@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export const FooterLink = styled(Link)`
     margin-left: 5px;
-    color: #16213e;
+    color: ${({ theme }) => theme.palette.text.primary};
     font-weight: bold;
     text-decoration: none;
 

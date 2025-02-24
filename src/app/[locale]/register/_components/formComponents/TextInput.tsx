@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 const Container = styled.div`
     position: relative; 
     display: block;
-    margin-top: 17px;
+    margin-top: 10px;
 `;
 
 const Icon = styled.div<{ iconSize: number }>`
@@ -12,7 +12,7 @@ const Icon = styled.div<{ iconSize: number }>`
     top: 50%;  
     left: 16px;  
     transform: translateY(-50%);
-    color: #171a1f;  
+    color: ${({ theme }) => theme.palette.grey["900"]};  
     pointer-events: none; 
     width: ${(props) => props.iconSize}px;
     height: ${(props) => props.iconSize}px;
@@ -29,14 +29,13 @@ const Icon = styled.div<{ iconSize: number }>`
 
 const Input = styled.input<{ hasIcon: boolean }>`
     height: 44px;
- 
     width: 480px;
     border-radius: 6px;
     border: none; 
     box-sizing: border-box;
     font-size: 16px;
     line-height: 26px;
-    background: #f3f4f6;
+    background:${({ theme }) => theme.palette.grey["100"]};  
     padding-left: ${(props) => (props.hasIcon ? "44px" : "10px")};
 
 `;

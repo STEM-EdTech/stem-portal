@@ -20,7 +20,8 @@ export const RegisterPageContainer = styled.div`
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 22, 52, 0.4);
+        background-color: ${({ theme }) => theme.palette.primary.dark}; 
+        opacity: 0.4;
         z-index: 1;
     }
 

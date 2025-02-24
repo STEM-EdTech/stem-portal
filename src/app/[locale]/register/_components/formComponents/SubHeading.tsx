@@ -7,6 +7,6 @@ export const SubHeading = styled.h1`
     font-size: 16px;
     line-height: 26px;
     font-weight: 400;
-    color: #9095a1;
-    margin-top: 7px;
+    color: ${({ theme }) => theme.palette.grey["600"]};
+    margin-top: 2px;
 `;

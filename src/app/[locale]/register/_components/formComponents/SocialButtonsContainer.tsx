@@ -5,5 +5,5 @@ export const SocialButtonsContainer = styled.div`
     display: flex;
     gap: 33px;  
     justify-content: center;  
-    margin-top: 24px;
+    margin-top: 15px;
 `;

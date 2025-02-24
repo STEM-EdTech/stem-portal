@@ -1,11 +1,12 @@
-import Button from "@mui/material/Button";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import React from 'react';
-import { Heading, RegisterForm, RegisterPageContainer, TextInput, Divider, FormFooter, SubHeading,  CheckboxInput, SocialButtonsContainer, SocialButton, FooterLink } from "~/app/[locale]/register/_components";
+import { Heading, RegisterForm, RegisterPageContainer, TextInput, Divider, FormFooter, SubHeading,  CheckboxInput, SocialButtonsContainer, SocialButton, FooterLink, SubmitButton } from "~/app/[locale]/register/_components";
 import { register } from "~/app/[locale]/register/actions";
 import { Link } from "~/i18n/routing";
 import { emailRegex } from "~/lib/zod";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import HttpsIcon from '@mui/icons-material/Https';
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations("RegisterPage");
@@ -36,7 +37,7 @@ export default async function RegisterPage({ params }: NextPageProps) {
 
                 <label>
                     <TextInput
-                        icon={<img src="https://7i2wrzbr0panhthc.public.blob.vercel-storage.com/static/icons/envelope.svg" alt="icon" />}
+                        icon={<MailOutlineIcon fontSize="small" />}
                         name="email"
                         type="email"
                         autoComplete="email"
@@ -47,7 +48,7 @@ export default async function RegisterPage({ params }: NextPageProps) {
                 </label>
                 <label>
                         <TextInput
-                            icon={<img src="https://7i2wrzbr0panhthc.public.blob.vercel-storage.com/static/icons/lock.svg" alt="icon" />}
+                            icon={<HttpsIcon fontSize="small" />}
                             name="password"
                             type="password"
                             autoComplete="new-password"
@@ -67,7 +68,7 @@ export default async function RegisterPage({ params }: NextPageProps) {
                     /> 
                     {t("form__terms")} <Link href="/terms-and-conditions">{t("form__terms__link")}</Link>
                 </label>
-                <Button variant="contained" color="primary" type="submit">{t("form__submit")}</Button>
+                <SubmitButton variant="contained" color="primary" type="submit">{t("form__submit")}</SubmitButton>
                 
                 <FormFooter>
                     {t("form__already__have__account")}

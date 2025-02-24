@@ -6,21 +6,21 @@ export const SocialButton = styled.button`
     align-items: center;
     justify-content: center;
     padding: 10px 20px;
-    border: 1px solid #ddd; 
+    border: 1px solid ${({ theme }) => theme.palette.grey[100]};
     border-radius: 8px; 
-    background-color: #ffffff;
+    background-color: ${({ theme }) => theme.palette.grey[100]};
     font-size: 16px;
     font-weight: 400; 
-    color: #333; 
+    color: ${({ theme }) => theme.palette.text.primary}; 
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 
     &:hover {
-        background-color: #f5f5f5;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background-color: ${({ theme }) => theme.palette.grey["100"]};
+        box-shadow: 0 2px 4px ${({ theme }) => theme.palette.grey["400"]};
     }
 
     &:active {
-        background-color: #e9e9e9;
+        background-color: ${({ theme }) => theme.palette.grey[50]};
     }
 `;

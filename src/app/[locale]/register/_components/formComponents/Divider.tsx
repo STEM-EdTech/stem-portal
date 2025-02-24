@@ -13,7 +13,7 @@ export const Divider = styled.div`
         content: '';
         flex: 1;
         height: 1px;
-        background-color: ${({ theme }) => theme.palette.grey["50"]};
+        background-color: ${({ theme }) => theme.palette.grey["300"]};
     }
     
     &::before {

@@ -1,4 +1,4 @@
-export { RegisterForm } from "./RegisterForm";
+export { RegisterForm } from "./formComponents/RegisterForm";
 export { RegisterPageContainer } from "./formComponents/RegisterPageContainer";
 export { TextInput } from './formComponents/TextInput';
 export { Heading } from './formComponents/Heading';
@@ -9,3 +9,4 @@ export { CheckboxInput } from './formComponents/CheckboxInput';
 export { SocialButton } from './formComponents/SocialButton';
 export { SocialButtonsContainer } from './formComponents/SocialButtonsContainer';
 export { FooterLink } from './formComponents/FooterLink';
+export { SubmitButton } from './formComponents/SubmitButton';

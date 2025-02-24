@@ -7,7 +7,7 @@ const StyledTypography = styled.p`
     font-size: 18px;
     font-weight: 500;
     line-height: 1.5;
-    color: ${({ theme }) => theme.palette.text};
+    color: ${({ theme }) => theme.palette.text.primary};
     margin-block: 18px;
 `;
 
@@ -36,7 +36,7 @@ export const StyledH1 = styled.h1`
     font-weight: 500;
     line-height: 70px;
     text-transform: uppercase;
-    color: ${({ theme }) => theme.palette.text};
+    color: ${({ theme }) => theme.palette.text.primary};
     margin-block-start: 18px;
     text-align: center;
 `;

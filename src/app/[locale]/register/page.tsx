@@ -1,10 +1,11 @@
+import Button from "@mui/material/Button";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import React from 'react';
+import { Heading, RegisterForm, RegisterPageContainer, TextInput, Divider, FormFooter, SubHeading,  CheckboxInput, SocialButtonsContainer, SocialButton, FooterLink } from "~/app/[locale]/register/_components";
 import { register } from "~/app/[locale]/register/actions";
 import { Link } from "~/i18n/routing";
 import { emailRegex } from "~/lib/zod";
-import { Heading, RegisterForm, RegisterPageContainer, SubmitButton, Divider, FormFooter, SubHeading, TextInput, CheckboxInput, SocialButtonsContainer, SocialButton, FooterLink } from './_components/formComponents';
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations("RegisterPage");
@@ -66,7 +67,8 @@ export default async function RegisterPage({ params }: NextPageProps) {
                     /> 
                     {t("form__terms")} <Link href="/terms-and-conditions">{t("form__terms__link")}</Link>
                 </label>
-                <SubmitButton type="submit">{t("form__submit")}</SubmitButton>
+                <Button variant="contained" color="primary" type="submit">{t("form__submit")}</Button>
+                
                 <FormFooter>
                     {t("form__already__have__account")}
                     <FooterLink href="/login">{t("form__login")}</FooterLink>

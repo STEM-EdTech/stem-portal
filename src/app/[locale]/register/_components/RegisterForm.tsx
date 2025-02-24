@@ -1,7 +1,7 @@
 "use client";
 import styled from "@emotion/styled";
 
-export const LoginForm = styled.form`
+export const RegisterForm = styled.form`
     display: flex;
     flex-direction: column;
     gap: 24px;

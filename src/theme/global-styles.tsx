@@ -51,16 +51,16 @@ export const GlobalStyles = () => {
                     border-spacing: 0;
                 }
                 html {
-                    color: ${theme.palette.text};
+                    color: ${theme.palette.text.primary};
                     overflow: hidden;
                     width: 100%;
                 }
                 body, main {
-                    background-color: ${theme.palette.primary[50]};
+                    background-color: ${theme.palette.primary.main};
                 }
 
                 a {
-                    color: ${theme.palette.accent[500]};
+                    color: ${theme.palette.accent.main};
                     text-decoration: none;
                 }
 
@@ -69,7 +69,7 @@ export const GlobalStyles = () => {
                 }
 
                 h1, h2, h3, h4, h5, h6 {
-                    color: ${theme.palette.text};
+                    color: ${theme.palette.text.primary};
                 }
             `}
         />

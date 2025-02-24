@@ -13,30 +13,32 @@
         "@emotion/cache": "^11.14.0",
         "@emotion/react": "^11.14.0",
         "@emotion/styled": "^11.14.0",
+        "@mui/icons-material": "^6.4.3",
+        "@mui/material": "^6.4.5",
+        "@mui/material-nextjs": "^6.4.3",
         "@supabase/ssr": "^0.5.2",
-        "@supabase/supabase-js": "^2.47.10",
-        "@t3-oss/env-nextjs": "^0.11.1",
+        "@supabase/supabase-js": "^2.49.0",
+        "@t3-oss/env-nextjs": "^0.12.0",
         "interweave": "^13.1.0",
-        "interweave-autolink": "^5.1.1",
+        "interweave-autolink": "^5.1.2",
         "interweave-ssr": "^2.0.0",
-        "next": "15.1.1",
-        "next-intl": "^3.26.2",
+        "next": "15.1.7",
+        "next-intl": "^3.26.3",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
-        "react-icons": "^5.4.0",
-        "zod": "^3.24.1"
+        "zod": "^3.24.2"
     },
     "devDependencies": {
-        "@types/node": "^20.17.10",
+        "@types/node": "^22.13.1",
         "@types/nodemailer": "^6.4.17",
-        "@types/react": "^19.0.1",
-        "@types/react-dom": "^19.0.2",
-        "eslint": "^9.17.0",
-        "eslint-config-next": "15.1.1",
-        "typescript": "^5.7.2"
+        "@types/react": "^19.0.10",
+        "@types/react-dom": "^19.0.4",
+        "eslint": "^9.20.1",
+        "eslint-config-next": "15.1.6",
+        "typescript": "^5.7.3"
     },
     "packageManager": "pnpm@9.4.0",
     "engines": {
-        "node": "^20"
+        "node": "^22"
     }
 }

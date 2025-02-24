@@ -18,10 +18,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - run: corepack enable
+      # - run: corepack enable pnpm // Uncomment this line when https://github.com/actions/setup-node/issues/1222 is fixed
+      - run: npm i -g --force corepack && corepack enable
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4.2.0
         with:
           node-version-file: "package.json"
           cache: "pnpm"
@@ -31,6 +32,9 @@ jobs:
 
       - name: Run ESLint
         run: pnpm lint
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
 
       - name: Run TypeScript check
         run: pnpm type-check

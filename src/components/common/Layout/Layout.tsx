@@ -1,15 +1,16 @@
 import { Roboto } from "next/font/google";
 import { PageContainer } from "./components/PageContainer";
 
-const inter = Roboto({
+export const fontRoboto = Roboto({
     subsets: ["latin", "latin-ext"],
-    weight: ["400", "500", "700"],
+    weight: ["300", "400", "500", "700"],
     style: ["normal", "italic"],
+    variable: '--font-roboto'
 });
 
 export const Layout = ({ children }: React.PropsWithChildren) => {
     return (
-        <PageContainer className={inter.className}>
+        <PageContainer>
             <main>
                 {children}
             </main>

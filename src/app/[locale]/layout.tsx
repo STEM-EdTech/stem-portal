@@ -2,12 +2,17 @@ import React from "react";
 import type { Metadata, Viewport } from "next";
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { Layout } from "~/components/common/Layout/Layout";
+import { fontRoboto, Layout } from "~/components/common/Layout/Layout";
 import type { SupportedLocale } from "~/i18n";
 import { routing } from '~/i18n/routing';
 import { ContextProvider } from "~/lib/ContextProvider";
 import RootStyleRegistry from "~/lib/RootStyleRegistry";
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 import { polyfill } from "interweave-ssr";
+import { theme } from "~/theme/theme";
+
 polyfill();
 
 export const metadata: Metadata = {
@@ -47,14 +52,19 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
 
     return (
         <html lang={locale}>
-            <body>
-                <RootStyleRegistry>
-                    <ContextProvider messages={messages} locale={locale}>
-                        <Layout>
-                            {children}
-                        </Layout>
-                    </ContextProvider>
-                </RootStyleRegistry>
+            <body className={fontRoboto.variable}>
+                <AppRouterCacheProvider>
+                    <ThemeProvider theme={theme}>
+                        <RootStyleRegistry>
+                            <CssBaseline />
+                            <ContextProvider messages={messages} locale={locale}>
+                                <Layout>
+                                    {children}
+                                </Layout>
+                            </ContextProvider>
+                        </RootStyleRegistry>
+                    </ThemeProvider>
+                </AppRouterCacheProvider>
             </body>
         </html>
     );

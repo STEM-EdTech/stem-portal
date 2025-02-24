@@ -36,9 +36,9 @@
         "form__submit__error": "Email is already taken",
         "form__placeholder__password": "Create a password",
         "form__placeholder__email": "Your email address",
-        "form__terms": "I agree with Terms & Conditions",
+        "form__terms": "I agree with",
+        "form__terms__link": "Terms & Conditions",
         "form__or_register_with": "or register with",
-        "form__already__have__account": "Already have an account?",
-        "form__sign__in": "Sign in"
+        "form__already__have__account": "Already have an account?"
     }
 }

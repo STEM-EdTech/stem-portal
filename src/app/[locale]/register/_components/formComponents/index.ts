@@ -9,3 +9,4 @@ export { FormFooter } from './FormFooter';
 export { CheckboxInput } from './CheckboxInput';
 export { SocialButton } from './SocialButton';
 export { SocialButtonsContainer } from './SocialButtonsContainer';
+export { FooterLink } from './FooterLink';

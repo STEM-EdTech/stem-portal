@@ -13,9 +13,9 @@ export const SubmitButton = styled.button`
     font-size: 18px;
     font-family: inherit;
     cursor: pointer;
+    transition: background-color 0.2s;
     margin-top: 10px;
     &:hover {
         background-color: #0d152f;
     }
-
 `;

@@ -36,7 +36,8 @@
         "form__submit__error": "Email jest już zajęty",
         "form__placeholder__password": "Utwórz hasło",
         "form__placeholder__email": "Twój adres e-mail",
-        "form__terms": "Zgadzam się z Regulaminem",
+        "form__terms": "Zgadzam się z",
+        "form__terms__link": "Regulaminem",
         "form__or_register_with": "lub zarejestrować się w"
     }
 }

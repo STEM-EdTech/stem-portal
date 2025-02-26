@@ -1,7 +1,7 @@
 "use client";
 
 import styled from "@emotion/styled";
-import Link from "next/link";
+import { Link } from "~/i18n/routing";
 
 export const FooterLink = styled(Link)`
     margin-left: 5px;

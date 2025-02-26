@@ -13,7 +13,8 @@ export const SocialButton = styled.button`
     font-weight: 400; 
     color: ${({ theme }) => theme.palette.text.primary}; 
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
+
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
     &:hover {
         background-color: ${({ theme }) => theme.palette.grey["100"]};

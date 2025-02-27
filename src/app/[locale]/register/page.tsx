@@ -53,12 +53,14 @@ export default async function RegisterPage({ params }: NextPageProps) {
                     placeholder={t("form__placeholder__password")}
                     required
                 />
-                <CheckboxInput
-                    name="terms"
-                    type="checkbox"
-                    required
-                />
-                {t("form__terms")} <Link href="/terms-and-conditions">{t("form__terms__link")}</Link>
+                <div>
+                    <CheckboxInput
+                        name="terms"
+                        type="checkbox"
+                        required
+                    />
+                    {t("form__terms")} <Link href="/terms-and-conditions">{t("form__terms__link")}</Link>
+                </div>
                 <SubmitButton variant="contained" color="primary" type="submit">{t("form__submit")}</SubmitButton>
 
                 <FormFooter>

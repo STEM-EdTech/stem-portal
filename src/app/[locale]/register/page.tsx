@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import React from 'react';
-import { Heading, RegisterForm, RegisterPageContainer, TextInput, Divider, FormFooter, SubHeading,  CheckboxInput, SocialButtonsContainer, SocialButton, FooterLink, SubmitButton } from "~/app/[locale]/register/_components";
+import { Heading, RegisterForm, RegisterPageContainer, TextInput, Divider, FormFooter, SubHeading, CheckboxInput, SocialButtonsContainer, SocialButton, FooterLink, SubmitButton } from "~/app/[locale]/register/_components";
 import { register } from "~/app/[locale]/register/actions";
 import { Link } from "~/i18n/routing";
 import { emailRegex } from "~/lib/zod";
@@ -34,42 +34,33 @@ export default async function RegisterPage({ params }: NextPageProps) {
                 </SocialButtonsContainer>
 
                 <Divider>{t("form__or_register_with")}</Divider>
-
-                <label>
-                    <TextInput
-                        icon={<MailOutlineIcon fontSize="small" />}
-                        name="email"
-                        type="email"
-                        autoComplete="email"
-                        pattern={emailRegex.toString()}
-                        placeholder={t("form__placeholder__email")}
-                        required
-                    />
-                </label>
-                <label>
-                        <TextInput
-                            icon={<HttpsIcon fontSize="small" />}
-                            name="password"
-                            type="password"
-                            autoComplete="new-password"
-                            minLength={8}
-                            maxLength={32}
-                            placeholder={t("form__placeholder__password")}
-                            required
-                        />
-                    
-                </label>
-
-                <label>
-                    <CheckboxInput
-                        name="terms"
-                        type="checkbox"
-                        required
-                    /> 
-                    {t("form__terms")} <Link href="/terms-and-conditions">{t("form__terms__link")}</Link>
-                </label>
+                <TextInput
+                    icon={<MailOutlineIcon fontSize="small" />}
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    pattern={emailRegex.toString()}
+                    placeholder={t("form__placeholder__email")}
+                    required
+                />
+                <TextInput
+                    icon={<HttpsIcon fontSize="small" />}
+                    name="password"
+                    type="password"
+                    autoComplete="new-password"
+                    minLength={8}
+                    maxLength={32}
+                    placeholder={t("form__placeholder__password")}
+                    required
+                />
+                <CheckboxInput
+                    name="terms"
+                    type="checkbox"
+                    required
+                />
+                {t("form__terms")} <Link href="/terms-and-conditions">{t("form__terms__link")}</Link>
                 <SubmitButton variant="contained" color="primary" type="submit">{t("form__submit")}</SubmitButton>
-                
+
                 <FormFooter>
                     {t("form__already__have__account")}
                     <FooterLink href="/login">{t("form__login")}</FooterLink>

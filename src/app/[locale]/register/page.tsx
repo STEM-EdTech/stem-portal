@@ -59,7 +59,9 @@ export default async function RegisterPage({ params }: NextPageProps) {
                         type="checkbox"
                         required
                     />
-                    {t("form__terms")} <Link href="/terms-and-conditions">{t("form__terms__link")}</Link>
+                    {t.rich("form__terms", {
+                        link: (text) => <Link href="/terms-and-conditions">{text}</Link>
+                    })}
                 </div>
                 <SubmitButton variant="contained" color="primary" type="submit">{t("form__submit")}</SubmitButton>
 

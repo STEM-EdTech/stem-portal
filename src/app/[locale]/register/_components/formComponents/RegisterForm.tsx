@@ -6,7 +6,6 @@ export const RegisterForm = styled.form`
     flex-direction: column;
     justify-content: flex-start; 
     align-items: center;
-    position: absolute;
     gap: 12px;
     width: 100%;
     max-width: 538px;

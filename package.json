@@ -19,7 +19,7 @@
         "@supabase/ssr": "^0.5.2",
         "@supabase/supabase-js": "^2.49.0",
         "@t3-oss/env-nextjs": "^0.12.0",
-        "interweave": "^13.1.0",
+        "interweave": "^13.1.1",
         "interweave-autolink": "^5.1.2",
         "interweave-ssr": "^2.0.0",
         "next": "15.1.7",

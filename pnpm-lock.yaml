@@ -36,11 +36,11 @@ importers:
         specifier: ^0.12.0
         version: 0.12.0(typescript@5.7.3)(zod@3.24.2)
       interweave:
-        specifier: ^13.1.0
-        version: 13.1.0(react@19.0.0)
+        specifier: ^13.1.1
+        version: 13.1.1(react@19.0.0)
       interweave-autolink:
         specifier: ^5.1.2
-        version: 5.1.2(interweave@13.1.0(react@19.0.0))(react@19.0.0)
+        version: 5.1.2(interweave@13.1.1(react@19.0.0))(react@19.0.0)
       interweave-ssr:
         specifier: ^2.0.0
         version: 2.0.0
@@ -1264,10 +1264,10 @@ packages:
     resolution: {integrity: sha512-vxWOJzQsm4neGGOksKEOovOP3d6elGJ3bKnssreDIWK+luveNUvV69enU28UtX5KFx8ft1wXDa2Dk/G87DEf+A==}
     engines: {node: '>=12.17.0', npm: '>=6.13.0'}
 
-  interweave@13.1.0:
-    resolution: {integrity: sha512-JIDq0+2NYg0cgL7AB26fBcV0yZdiJvPDBp+aF6k8gq6Cr1kH5Gd2/Xqn7j8z+TGb8jCWZn739jzalCz+nPYwcA==}
+  interweave@13.1.1:
+    resolution: {integrity: sha512-5GdAavzK1i2BeeLTPzj0o6/zJMfLqQZq/2Q4c3ALT8ByEWf1syzl2MlQMTUoWzETy1x1/cAkZjiqOlulaoDRxw==}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   intl-messageformat@10.7.10:
     resolution: {integrity: sha512-hp7iejCBiJdW3zmOe18FdlJu8U/JsADSDiBPQhfdSeI8B9POtvPRvPh3nMlvhYayGMKLv6maldhR7y3Pf1vkpw==}
@@ -3301,9 +3301,9 @@ snapshots:
       hasown: 2.0.2
       side-channel: 1.1.0
 
-  interweave-autolink@5.1.2(interweave@13.1.0(react@19.0.0))(react@19.0.0):
+  interweave-autolink@5.1.2(interweave@13.1.1(react@19.0.0))(react@19.0.0):
     dependencies:
-      interweave: 13.1.0(react@19.0.0)
+      interweave: 13.1.1(react@19.0.0)
       react: 19.0.0
 
   interweave-ssr@2.0.0:
@@ -3311,7 +3311,7 @@ snapshots:
       parse5: 6.0.1
       style-parser: 1.1.1
 
-  interweave@13.1.0(react@19.0.0):
+  interweave@13.1.1(react@19.0.0):
     dependencies:
       escape-html: 1.0.3
       react: 19.0.0

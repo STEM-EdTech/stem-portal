@@ -8,6 +8,7 @@ export const FooterLink = styled(Link)`
     color: ${({ theme }) => theme.palette.text.primary};
     font-weight: bold;
     text-decoration: none;
+    font-size: clamp(12px, 1vw, 14px);
 
     &:hover {
         text-decoration: underline;

@@ -3,7 +3,8 @@ import styled from "@emotion/styled";
 
 export const SocialButtonsContainer = styled.div`
     display: flex;
-    gap: 33px;  
+    flex-wrap: wrap;
+    gap: clamp(16px, 3vw, 33px);  
     justify-content: center;  
-    margin-top: 15px;
+    margin-top: clamp(10px, 2vw, 15px);
 `;

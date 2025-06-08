@@ -7,11 +7,11 @@ import { ThemeOptions as MuiThemeOptions } from '@mui/material/styles';
 
 declare module "@mui/material/styles/createPalette" {
     export interface PaletteOptions extends MuiPaletteOptions {
-        accent: MuiPaletteColor;
+        // Custom palette colours here
     }
 
     export interface Palette extends MuiPallete {
-        accent: MuiPaletteColor;
+        // Custom palette colours here
     }
 }
 

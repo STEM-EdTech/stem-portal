@@ -1,21 +1,11 @@
 "use client";
 import styled from "@emotion/styled";
+import { Button } from "@mui/material";
 
-export const LogoutButton = styled.button`
+export const LogoutButton = styled(Button)`
     position: absolute;
-    top: 10px;
-    right: 10px;
-
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: ${({ theme }) => theme.palette.secondary.main};
-    color: white;
-    font-size: 16px;
-    font-family: inherit;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    &:hover {
-        background-color: ${({ theme }) => theme.palette.secondary.dark};
-    }
+    top: 24px;
+    right: 24px;
+    padding: 12px 24px;
+    color: ${({ theme }) => theme.palette.primary.contrastText};
 `;

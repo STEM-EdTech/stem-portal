@@ -33,7 +33,7 @@ export default async function Home({ params }: NextPageProps) {
     return (
         <>
             <Header>User Dashboard</Header>
-            <LogoutButton onClick={logoutButtonHandler}>{t("logout")}</LogoutButton>
+            <LogoutButton onClick={logoutButtonHandler} variant="contained" color="primary">{t("logout")}</LogoutButton>
         </>
     );
 }

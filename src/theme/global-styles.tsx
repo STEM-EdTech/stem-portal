@@ -56,11 +56,11 @@ export const GlobalStyles = () => {
                     width: 100%;
                 }
                 body, main {
-                    background-color: ${theme.palette.primary.main};
+                    background-color: ${theme.palette.background.default};
                 }
 
                 a {
-                    color: ${theme.palette.accent.main};
+                    color: ${theme.palette.primary.main};
                     text-decoration: none;
                 }
 

@@ -1,8 +1,9 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
-import { Header, LogoutButton } from "~/app/[locale]/_components";
+import { Header, LogoutButton, Sidebar, ChatArea, ChatBox } from "~/app/[locale]/_components";
 import { createClient } from "~/lib/supabase/server";
 import { redirect } from "~/i18n/routing";
+import { Box } from "@mui/material";
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations("HomePage");
@@ -31,9 +32,22 @@ export default async function Home({ params }: NextPageProps) {
     };
 
     return (
-        <>
-            <Header>User Dashboard</Header>
-            <LogoutButton onClick={logoutButtonHandler} variant="contained" color="primary">{t("logout")}</LogoutButton>
-        </>
+        <Box sx={{ display: "flex", flexDirection: "column", height: "100vh" }}>
+            <Header>
+                <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
+                    <span>User Dashboard</span>
+                    <LogoutButton onClick={logoutButtonHandler} variant="contained" color="primary">
+                        {t("logout")}
+                    </LogoutButton>
+                </Box>
+            </Header>
+            <Box sx={{ display: "flex", flex: 1, overflow: "hidden" }}>
+                <Sidebar />
+                <Box sx={{ display: "flex", flexDirection: "column", flex: 1 }}>
+                    <ChatArea />
+                    <ChatBox />
+                </Box>
+            </Box>
+        </Box>
     );
 }

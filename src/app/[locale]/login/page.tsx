@@ -46,7 +46,6 @@ export default async function LogInPage({ params }: NextPageProps) {
                     }}
                     required
                 />
-                <input type="hidden" name="redirectTo" value="/" />
                 <Button variant="contained" color="primary" type="submit">{t("form__log_in")}</Button>
                 <Link href="/register" style={{
                     color: "black"

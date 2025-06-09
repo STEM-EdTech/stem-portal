@@ -40,6 +40,13 @@
         "form__terms": "Zgadzam się z <link>Regulaminem</link>",
         "form__or_register_with": "lub zarejestrować się w"
     },
+    "RegisterSuccessPage": {
+        "seo__title": "Rejestracja zakończona sukcesem",
+        "seo__description": "Pomyślnie zarejestrowano konto",
+        "title": "Rejestracja zakończona sukcesem!",
+        "message": "Sprawdź swoją skrzynkę e-mail, aby aktywować konto. Po aktywacji będziesz mógł się zalogować.",
+        "login_button": "Przejdź do logowania"
+    },
     "TermsPage": {
         "seo__title": "Strona z regulaminem",
         "seo__description": "To jest strona z regulaminem",

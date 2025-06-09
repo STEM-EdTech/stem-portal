@@ -5,33 +5,16 @@ permissions:
   actions: read
 
 on:
-  deployment_status:
+  repository_dispatch:
+    types:
+      - "vercel.deployment.success"
 
 jobs:
-  get-git-source-branch:
-    # Retrieves the branch name for this deployment from Vercel
-    name: Get Git Source Branch
-    if: |
-      github.event_name == 'deployment_status'
-      && github.event.deployment_status.state == 'success'
-    runs-on: ubuntu-24.04
-    outputs:
-      GIT_SOURCE_BRANCH: ${{ steps.step1.outputs.GIT_SOURCE_BRANCH }}
-    steps:
-      - name: Get Git Source Branch
-        id: step1
-        run: |
-          DEPLOYMENT_URL=$(basename ${{ github.event.deployment_status.environment_url }})
-          GIT_SOURCE_BRANCH=$(curl -X GET "https://api.vercel.com/v13/deployments/$DEPLOYMENT_URL" -H "Authorization: Bearer ${{ secrets.VERCEL_API_TOKEN }}" -H "Content-Type: application/json" | jq .gitSource.ref)
-          echo "GIT_SOURCE_BRANCH=$GIT_SOURCE_BRANCH" >> "$GITHUB_OUTPUT"
   run-e2e-tests:
     name: E2E Playwright Tests
-    needs: [get-git-source-branch]
     if: |
-      github.event_name == 'deployment_status'
-      && github.event.deployment_status.state == 'success'
-      && startsWith(github.event.deployment.environment, 'Preview')
-      && needs.get-git-source-branch.outputs.GIT_SOURCE_BRANCH != 'master'
+      startsWith(github.event.client_payload.environment, 'Preview')
+      && github.event.client_payload.gitSource.ref != 'refs/heads/master'
     runs-on: ubuntu-24.04
     container:
       image: mcr.microsoft.com/playwright:v1.49.1-noble
@@ -56,7 +39,7 @@ jobs:
       - name: Run Playwright tests
         run: pnpm test
         env:
-          PLAYWRIGHT_BASE_URL: ${{ github.event.deployment_status.environment_url }}
+          PLAYWRIGHT_BASE_URL: ${{ github.event.client_payload.url }}
           PLAYWRIGHT_TEST_EMAIL: ${{ secrets.PLAYWRIGHT_TEST_EMAIL }}
           PLAYWRIGHT_TEST_PASSWORD: ${{ secrets.PLAYWRIGHT_TEST_PASSWORD }}
 

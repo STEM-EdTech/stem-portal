@@ -21,8 +21,6 @@ export async function login(formData: FormData) {
         redirect({ href: '/error', locale });
     }
 
-    const redirectTo = formData.get('redirectTo') as string ?? '/';
-
-    revalidatePath(redirectTo, 'layout');
-    redirect({ href: redirectTo, locale });
+    revalidatePath('/', 'layout');
+    redirect({ href: '/', locale });
 }

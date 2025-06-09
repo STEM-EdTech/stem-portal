@@ -10,7 +10,6 @@ import type { SignUpWithPasswordCredentials } from "@supabase/supabase-js";
 export async function register(formData: FormData) {
     const supabase = await createClient();
     const locale = await getLocale();
-    const redirectTo = formData.get('redirectTo') as string ?? "/";
 
     const parsedCredentials = await signInSchema.parseAsync({
         email: formData.get('email') as string,
@@ -20,7 +19,7 @@ export async function register(formData: FormData) {
     const credentials: SignUpWithPasswordCredentials = {
         ...parsedCredentials,
         options: {
-            emailRedirectTo: `/${locale}` + redirectTo
+            emailRedirectTo: `/${locale}`
         }
     };
 
@@ -30,6 +29,6 @@ export async function register(formData: FormData) {
         redirect({ href: '/error', locale });
     }
 
-    revalidatePath(redirectTo, 'layout');
-    redirect({ href: redirectTo, locale });
+    revalidatePath('/register/success', 'layout');
+    redirect({ href: '/register/success', locale });
 }

@@ -1,6 +1,6 @@
 import { object, string } from "zod";
 
-export const emailRegex = /^(?!\.)(?!.*\.\.)([A-Z0-9_'+\-\.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9\-]*\.)+[A-Z]{2,}$/i;
+export const emailRegex = /^(?!\.)(?!.*\.\.)([A-Za-z0-9_+\-\.]*)[A-Za-z0-9_+\-]@([A-Za-z0-9][A-Za-z0-9\-]*\.)+[A-Za-z]{2,}$/;
 
 export const signInSchema = object({
     email: string({ required_error: "Email is required" })

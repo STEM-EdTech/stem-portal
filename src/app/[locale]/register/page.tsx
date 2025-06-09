@@ -39,7 +39,7 @@ export default async function RegisterPage({ params }: NextPageProps) {
                     name="email"
                     type="email"
                     autoComplete="email"
-                    pattern={emailRegex.toString()}
+                    pattern={emailRegex.source}
                     placeholder={t("form__placeholder__email")}
                     required
                 />

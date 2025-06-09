@@ -31,7 +31,7 @@ export default async function LogInPage({ params }: NextPageProps) {
                     label={t("form__email")}
                     autoComplete="email"
                     slotProps={{
-                        htmlInput: { pattern: emailRegex.toString() }
+                        htmlInput: { pattern: emailRegex.source }
                     }}
                     required
                 />

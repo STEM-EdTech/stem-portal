@@ -12,7 +12,7 @@ on:
 jobs:
   run-e2e-tests:
     name: E2E Playwright Tests
-    if: github.event.client_payload.environment === 'Production'
+    if: github.event.client_payload.environment == 'Production'
     runs-on: ubuntu-24.04
     container:
       image: mcr.microsoft.com/playwright:v1.49.1-noble

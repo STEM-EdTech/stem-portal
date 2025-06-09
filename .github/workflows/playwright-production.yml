@@ -1,5 +1,9 @@
 name: Production Playwright Tests
 
+permissions:
+  contents: read
+  actions: read
+
 on:
   deployment_status:
 

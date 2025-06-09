@@ -30,7 +30,7 @@ export const AppBar = () => {
     const locale = useLocale();
 
     return (
-        <StyledAppBar position="static">
+        <StyledAppBar position="static" data-testid="app-bar">
             <StyledToolbar>
                 <AppBarTitle>User Dashboard</AppBarTitle>
                 <LogoutButton onClick={() => logoutAction(locale)} variant="contained">

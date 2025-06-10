@@ -5,7 +5,7 @@ import {
 } from '@mui/material/styles/createPalette';
 import { ThemeOptions as MuiThemeOptions } from '@mui/material/styles';
 
-declare module "@mui/material/styles/createPalette" {
+declare module "@mui/material/styles" {
     export interface PaletteOptions extends MuiPaletteOptions {
         // Custom palette colours here
     }

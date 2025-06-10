@@ -17,7 +17,7 @@ const SidebarHeader = styled(Box)`
 
 export const Sidebar = () => {
     return (
-        <SidebarContainer>
+        <SidebarContainer data-testid="sidebar">
             <SidebarHeader>
                 <Typography variant="h6">Chat History</Typography>
             </SidebarHeader>

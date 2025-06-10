@@ -9,7 +9,7 @@ import { ContextProvider } from "~/lib/ContextProvider";
 import RootStyleRegistry from "~/lib/RootStyleRegistry";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
+import { CssBaseline } from '@mui/material';
 import { polyfill } from "interweave-ssr";
 import { theme } from "~/theme/theme";
 

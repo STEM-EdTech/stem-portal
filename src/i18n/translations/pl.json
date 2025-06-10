@@ -38,7 +38,8 @@
         "form__placeholder__password": "Utwórz hasło",
         "form__placeholder__email": "Twój adres e-mail",
         "form__terms": "Zgadzam się z <link>Regulaminem</link>",
-        "form__or_register_with": "lub zarejestrować się w"
+        "form__or_register_with": "lub zarejestrować się w",
+        "form__already__have__account": "Masz już konto?"
     },
     "RegisterSuccessPage": {
         "seo__title": "Rejestracja zakończona sukcesem",

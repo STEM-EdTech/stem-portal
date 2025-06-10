@@ -66,6 +66,7 @@ const authenticate = async ({ page, filename, email, password }: AuthenticatePro
     await page.getByTestId('login-submit-button').click();
 
     await expect(await page.getByTestId('app-bar')).toBeVisible();
+    await expect(await page.getByTestId('app-bar-logout-button')).toBeVisible();
 
     await page.context().storageState({ path: filename });
 

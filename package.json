@@ -45,5 +45,8 @@
     "packageManager": "pnpm@9.4.0",
     "engines": {
         "node": "^22"
+    },
+    "resolutions": {
+        "@babel/runtime": "7.26.10"
     }
 }

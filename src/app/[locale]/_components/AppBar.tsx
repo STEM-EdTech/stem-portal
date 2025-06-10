@@ -33,7 +33,11 @@ export const AppBar = () => {
         <StyledAppBar position="static" data-testid="app-bar">
             <StyledToolbar>
                 <AppBarTitle>User Dashboard</AppBarTitle>
-                <LogoutButton onClick={() => logoutAction(locale)} variant="contained">
+                <LogoutButton
+                    onClick={() => logoutAction(locale)}
+                    variant="contained"
+                    data-testid="app-bar-logout-button"
+                >
                     {t("logout")}
                 </LogoutButton>
             </StyledToolbar>

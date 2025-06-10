@@ -44,7 +44,7 @@ export const ChatArea: React.FC<ChatAreaProps> = ({ messages }) => {
     }, [messages]);
 
     return (
-        <ChatContainer ref={chatContainerRef}>
+        <ChatContainer ref={chatContainerRef} data-testid="chat-messages-container">
             {messages.map((msg, index) => (
                 <MessageBubble key={index} isUser={msg.from === 'user'}>
                     <Typography>{msg.message}</Typography>

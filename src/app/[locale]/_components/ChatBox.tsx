@@ -92,8 +92,8 @@ export const ChatBox = () => {
 
     return (
         <>
-            <ChatBoxContainer>
-                <ChatMessagesContainer ref={messagesContainerRef}>
+            <ChatBoxContainer data-testid="chat-box">
+                <ChatMessagesContainer ref={messagesContainerRef} data-testid="chat-messages-wrapper">
                     <ChatArea messages={messages} />
                 </ChatMessagesContainer>
                 <InputContainer>
@@ -104,8 +104,14 @@ export const ChatBox = () => {
                         placeholder="Type your message..."
                         multiline
                         maxRows={4}
+                        slotProps={{
+                            htmlInput: {
+                                "data-testid": "chat-input"
+                            }
+                        }}
                     />
                     <IconButton
+                        data-testid="send-message-button"
                         color="primary"
                         onClick={handleSend}
                         disabled={!message.trim()}

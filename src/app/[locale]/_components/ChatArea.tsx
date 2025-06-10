@@ -2,10 +2,10 @@
 
 import { styled } from "@mui/material/styles";
 import { Box, Typography } from "@mui/material";
+import { useEffect, useRef } from "react";
 
 const ChatContainer = styled(Box)`
     flex: 1;
-    height: calc(100vh - 180px);
     overflow-y: auto;
     padding: ${({ theme }) => theme.spacing(2)};
     display: flex;
@@ -30,15 +30,26 @@ const MessageBubble = styled(Box, {
     align-self: ${({ isUser }) => isUser ? 'flex-end' : 'flex-start'};
 `;
 
-export const ChatArea = () => {
+interface ChatAreaProps {
+    messages: { from: string; message: string; }[];
+}
+
+export const ChatArea: React.FC<ChatAreaProps> = ({ messages }) => {
+    const chatContainerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (chatContainerRef.current) {
+            chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+        }
+    }, [messages]);
+
     return (
-        <ChatContainer>
-            <MessageBubble>
-                <Typography>Hello! How can I help you today?</Typography>
-            </MessageBubble>
-            <MessageBubble isUser>
-                <Typography>I have a question about the project.</Typography>
-            </MessageBubble>
+        <ChatContainer ref={chatContainerRef}>
+            {messages.map((msg, index) => (
+                <MessageBubble key={index} isUser={msg.from === 'user'}>
+                    <Typography>{msg.message}</Typography>
+                </MessageBubble>
+            ))}
         </ChatContainer>
     );
-}; 
+};

@@ -22,7 +22,7 @@ export default async function Home({ params }: NextPageProps) {
             <Box sx={{ display: "flex", flex: 1, overflow: "hidden" }}>
                 <Sidebar />
                 <Box sx={{ display: "flex", flexDirection: "column", flex: 1 }}>
-                    <ChatArea />
+                    <ChatArea messages={[]} />
                     <ChatBox />
                 </Box>
             </Box>

@@ -1,8 +1,8 @@
 import {
-    Palette as MuiPallete,
+    Palette as MuiPalette,
     PaletteOptions as MuiPaletteOptions,
     PaletteColor as MuiPaletteColor
-} from '@mui/material/styles/createPalette';
+} from '@mui/material/styles';
 import { ThemeOptions as MuiThemeOptions } from '@mui/material/styles';
 
 declare module "@mui/material/styles" {
@@ -13,9 +13,6 @@ declare module "@mui/material/styles" {
     export interface Palette extends MuiPallete {
         // Custom palette colours here
     }
-}
-
-declare module "@mui/material/styles" {
     export interface ThemeOptions extends MuiThemeOptions {
         borderRadius: string;
     }

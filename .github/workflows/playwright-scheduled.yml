@@ -35,7 +35,7 @@ jobs:
       - name: Run Playwright tests
         run: pnpm test
         env:
-          PLAYWRIGHT_BASE_URL: ${{ secrets.PRODUCTION_URL }}
+          PLAYWRIGHT_BASE_URL: "https://app.stem-ed.tech"
           PLAYWRIGHT_TEST_EMAIL: ${{ secrets.PLAYWRIGHT_TEST_EMAIL }}
           PLAYWRIGHT_TEST_PASSWORD: ${{ secrets.PLAYWRIGHT_TEST_PASSWORD }}
 

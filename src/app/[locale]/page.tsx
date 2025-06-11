@@ -1,8 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
-import { Header, LogoutButton } from "~/app/[locale]/_components";
-import { createClient } from "~/lib/supabase/server";
-import { redirect } from "~/i18n/routing";
+import { Sidebar, ChatArea, ChatBox, AppBar } from "~/app/[locale]/_components";
+import { Box } from "@mui/material";
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations("HomePage");
@@ -16,24 +15,17 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Home({ params }: NextPageProps) {
     const { locale } = await params;
     setRequestLocale(locale);
-    const t = await getTranslations({ locale, namespace: "HomePage" });
-
-    const logoutButtonHandler = async () => {
-        "use server";
-        const supabase = await createClient();
-        const { error } = await supabase.auth.signOut({ scope: 'local' });
-        if (error) {
-            console.error('error', error);
-            return;
-        }
-
-        redirect({ href: '/login', locale });
-    };
 
     return (
-        <>
-            <Header>User Dashboard</Header>
-            <LogoutButton onClick={logoutButtonHandler}>{t("logout")}</LogoutButton>
-        </>
+        <Box sx={{ display: "flex", flexDirection: "column", height: "100vh" }}>
+            <AppBar />
+            <Box sx={{ display: "flex", flex: 1, overflow: "hidden" }}>
+                <Sidebar />
+                <Box sx={{ display: "flex", flexDirection: "column", flex: 1 }}>
+                    <ChatArea messages={[]} />
+                    <ChatBox />
+                </Box>
+            </Box>
+        </Box>
     );
 }

@@ -40,6 +40,13 @@
         "form__or_register_with": "or register with",
         "form__already__have__account": "Already have an account?"
     },
+    "RegisterSuccessPage": {
+        "seo__title": "Registration Successful",
+        "seo__description": "You have successfully registered your account",
+        "title": "Registration Successful!",
+        "message": "Please check your email for an activation link. Once you activate your account, you can log in.",
+        "login_button": "Go to Login"
+    },
     "TermsPage": {
         "seo__title": "Terms & Conditions Page",
         "seo__description": "This is the Terms & Conditions Page",

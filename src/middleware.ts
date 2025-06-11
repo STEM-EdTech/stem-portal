@@ -7,8 +7,9 @@ const { defaultLocale, localePrefix, locales } = routing;
 
 const publicPages = [
     "/unauthorized",
-    "/error", 
-    "/terms-and-conditions"
+    "/error",
+    "/terms-and-conditions",
+    "/register/success"
 ];
 
 const authPages = ["/login", "/register", "/auth/confirm", "/forgot-password", "/reset-password"];

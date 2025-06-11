@@ -1,6 +1,6 @@
 "use client";
 import { styled } from "@mui/material/styles";
-import Button from "@mui/material/Button";
+import { Button } from "@mui/material";
 
 export const SubmitButton = styled(Button)`
     padding: clamp(8px, 1.5vw, 14px);

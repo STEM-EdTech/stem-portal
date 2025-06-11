@@ -31,7 +31,10 @@ export default async function LogInPage({ params }: NextPageProps) {
                     label={t("form__email")}
                     autoComplete="email"
                     slotProps={{
-                        htmlInput: { pattern: emailRegex.toString() }
+                        htmlInput: {
+                            pattern: emailRegex.source,
+                            "data-testid": "login-email-input"
+                        }
                     }}
                     required
                 />
@@ -42,15 +45,29 @@ export default async function LogInPage({ params }: NextPageProps) {
                     autoComplete="current-password"
                     label={t("form__password")}
                     slotProps={{
-                        htmlInput: { minLength: 8, maxLength: 32 }
+                        htmlInput: {
+                            minLength: 8,
+                            maxLength: 32,
+                            "data-testid": "login-password-input"
+                        }
                     }}
                     required
                 />
-                <input type="hidden" name="redirectTo" value="/" />
-                <Button variant="contained" color="primary" type="submit">{t("form__log_in")}</Button>
-                <Link href="/register" style={{
-                    color: "black"
-                }}>{t("form__register")}</Link>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    type="submit"
+                    data-testid="login-submit-button"
+                >
+                    {t("form__log_in")}
+                </Button>
+                <Link
+                    href="/register"
+                    style={{ color: "black" }}
+                    data-testid="login-register-link"
+                >
+                    {t("form__register")}
+                </Link>
             </LoginForm>
         </LoginPageContainer>
     );

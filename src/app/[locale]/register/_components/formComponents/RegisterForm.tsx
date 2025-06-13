@@ -7,14 +7,20 @@ export const RegisterForm = styled.form`
     justify-content: flex-start; 
     align-items: center;
     gap: 12px;
-    width: 100%;
-    max-width: 538px;
-    height: 100%;
-    max-height: 569px;
+
+    min-width: 538px;
+    height: auto;
+
     border-radius: 8px;
     background-color: ${({ theme }) => theme.palette.grey["50"]};
-    padding-left: 29px;
-    padding-right: 29px;
-    padding-top: 35px;
-    padding-bottom: 60px;
+    
+    padding: 40px;
+ 
+    overflow: hidden;
+
+    @media (max-width: 600px) {
+        min-width: initial;
+        width: 100%;  
+        padding: 20px;  
+    }    
 `;

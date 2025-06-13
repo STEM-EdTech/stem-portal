@@ -3,24 +3,37 @@
 import styled from "@emotion/styled";
 
 export const Divider = styled.div`
-    display: flex;
-    align-items: center;
-    width: 100%;
-    margin: 24px;
-    font-size: 14px;
-    &::before,
-    &::after {
-        content: '';
-        flex: 1;
-        height: 1px;
-        background-color: ${({ theme }) => theme.palette.grey["300"]};
-    }
-    
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 24px;
+  font-size: 14px;
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: ${({ theme }) => theme.palette.grey["300"]};
+  }
+
+  &::before {
+    margin-right: 10px;
+  }
+
+  &::after {
+    margin-left: 10px;
+  }
+
+  @media (max-width: 600px) {
+    margin: 16px;
+    font-size: 12px;
+
     &::before {
-        margin-right: 10px; 
+      margin-right: 6px;
     }
 
     &::after {
-        margin-left: 10px; 
+      margin-left: 6px;
     }
+  }
 `;

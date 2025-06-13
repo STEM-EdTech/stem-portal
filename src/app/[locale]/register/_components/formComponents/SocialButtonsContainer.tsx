@@ -2,9 +2,14 @@
 import styled from "@emotion/styled";
 
 export const SocialButtonsContainer = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    gap: clamp(16px, 3vw, 33px);  
-    justify-content: center;  
-    margin-top: clamp(10px, 2vw, 15px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 10px;
+
+  @media (max-width: 600px) {
+    margin-top: 15px;
+    gap: 25px;
+  }
 `;

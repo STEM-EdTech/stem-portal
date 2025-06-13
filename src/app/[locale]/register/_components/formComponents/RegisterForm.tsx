@@ -8,14 +8,19 @@ export const RegisterForm = styled.form`
     align-items: center;
     gap: 12px;
 
-    width: min(90%, 538px);
-    min-width: 260px;
+    min-width: 538px;
     height: auto;
 
     border-radius: 8px;
     background-color: ${({ theme }) => theme.palette.grey["50"]};
-    padding: clamp(20px, 5vw, 35px) 
-             clamp(15px, 5vw, 29px) 
-             clamp(40px, 5vw, 60px);
+    
+    padding: 40px;
+ 
     overflow: hidden;
+
+    @media (max-width: 600px) {
+        min-width: initial;
+        width: 100%;  
+        padding: 20px;  
+    }    
 `;

@@ -115,7 +115,7 @@ export const ChatBox = () => {
                         color="primary"
                         onClick={handleSend}
                         disabled={!message.trim()}
-                        sx={{ alignSelf: "center" }}
+                        sx={{ alignSelf: "center", visibility: message.trim() ? "visible" : "hidden" }}
                     >
                         <SendIcon />
                     </IconButton>

@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 
 const ChatContainer = styled(Box)`
     flex: 1;
-    height: calc(100vh - 180px);
+    height: 100%;
     overflow-y: auto;
     padding: ${({ theme }) => theme.spacing(2)};
     display: flex;

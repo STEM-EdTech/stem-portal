@@ -1,40 +1,40 @@
 "use client";
 
 import { styled } from "@mui/material/styles";
-import { Box, IconButton, List, ListItem, ListItemButton, ListItemText, Typography } from "@mui/material";
+import { Box, IconButton, List, ListItem, ListItemButton, ListItemText, Typography, useMediaQuery, useTheme } from "@mui/material";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState, useEffect, useRef } from "react";
 
 const SidebarContainer = styled(Box, {
-    shouldForwardProp: (prop) => prop !== "isMinimised" && prop !== "isMobileOpen",
-}) <{ isMinimised: boolean; isMobileOpen: boolean; }>`
-    height: calc(100vh - 60px);
+    shouldForwardProp: (prop) => prop !== "isMinimised" && prop !== "isMobileSidebarOpen",
+}) <{ isMinimised: boolean; isMobileSidebarOpen: boolean; }>`
+    height: calc(100vh - 64px);
     background-color: ${({ theme }) => theme.palette.background.paper};
     border-right: 1px solid ${({ theme }) => theme.palette.divider};
-    transition: width 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
+    transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    z-index: 1200;
+    width: 75%;
+    padding: ${({ theme }) => theme.spacing(2)};
+    transform: translateX(${({ isMobileSidebarOpen }) => (isMobileSidebarOpen ? "0" : "-100%")});
 
-    @media (min-width: 768px) {
-        width: ${({ isMinimised }) => (isMinimised ? "60px" : "450px")};
-        align-items: ${({ isMinimised }) => (isMinimised ? "center" : "flex-start")};
-        padding: ${({ isMinimised, theme }) => theme.spacing(1)};
-        height: 100%;
-    }
-
-    @media (max-width: 768px) {
-        position: fixed;
-        top: 65px;
-        left: 0;
-        z-index: 1200;
-        width: 250px;
-        padding: ${({ theme }) => theme.spacing(2)};
-        opacity: ${({ isMobileOpen }) => (isMobileOpen ? 1 : 0)};
-        visibility: ${({ isMobileOpen }) => (isMobileOpen ? "visible" : "hidden")};
-        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-    }
+@media (min-width: ${({ theme }) => theme.breakpoints.values.md}px) {
+    position: static;
+    top: auto;
+    left: auto;
+    z-index: auto;
+    width: ${({ isMinimised }) => (isMinimised ? "60px" : "25%")};
+    align-items: ${({ isMinimised }) => (isMinimised ? "center" : "flex-start")};
+    padding: ${({ isMinimised, theme }) => theme.spacing(1)};
+    height: 100%;
+    transform: translateX(0);
+}
 `;
 
 const SidebarHeader = styled(Box)`
@@ -42,18 +42,20 @@ const SidebarHeader = styled(Box)`
 `;
 
 const ContentWrapper = styled(Box, {
-    shouldForwardProp: (prop) => prop !== "isMinimised"
-}) <{ isMinimised: boolean; }>`
+    shouldForwardProp: (prop) => prop !== "isMinimised" && prop !== "isMobile",
+}) <{ isMinimised: boolean; isMobile: boolean; }>`
     display: flex;
     flex-direction: column;
     gap: ${({ theme }) => theme.spacing(2)};
     width: 100%;
     min-width: 100%;
     white-space: nowrap;
-    overflow: scroll;
-    opacity: ${({ isMinimised }) => (isMinimised ? 0 : 1)};
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100%;
+    opacity: ${({ isMinimised, isMobile }) => (isMobile ? 1 : isMinimised ? 0 : 1)};
     transition: opacity 0.15s ease-in-out;
-    transition-delay: ${({ isMinimised }) => (isMinimised ? "0s" : "0.15s")};
+    transition-delay: "0.15s";
     padding: ${({ theme }) => theme.spacing(2)};
 `;
 
@@ -61,23 +63,20 @@ const SidebarToggleButton = styled(IconButton)`
     margin-left: auto;
 `;
 
-export const Sidebar: React.FC<{ isMobileOpen: boolean; setIsMobileOpen: (open: boolean) => void; }> = ({
-    isMobileOpen,
-    setIsMobileOpen,
+const StyledListItemText = styled(ListItemText)({
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap",
+});
+
+export const Sidebar: React.FC<{ isMobileSidebarOpen: boolean; setIsMobileSidebarOpen: (open: boolean) => void; }> = ({
+    isMobileSidebarOpen,
+    setIsMobileSidebarOpen,
 }) => {
     const [isMinimised, setisMinimised] = useState(false);
-    const [isMobile, setIsMobile] = useState(false);
     const sidebarRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth <= 768);
-        };
-
-        handleResize();
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
     useEffect(() => {
         if (!isMobile) return;
@@ -88,26 +87,25 @@ export const Sidebar: React.FC<{ isMobileOpen: boolean; setIsMobileOpen: (open: 
                 !sidebarRef.current.contains(event.target as Node) &&
                 !(event.target as Element).closest('.MuiIconButton-root')
             ) {
-                setIsMobileOpen(false);
+                setIsMobileSidebarOpen(false);
             }
         };
 
-        if (isMobileOpen) {
+        if (isMobileSidebarOpen) {
             document.addEventListener('mousedown', handleClickOutside);
         }
 
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [isMobile, isMobileOpen, setIsMobileOpen]);
+    }, [isMobile, isMobileSidebarOpen, setIsMobileSidebarOpen]);
 
     return (
         <SidebarContainer
             data-testid="sidebar"
             ref={sidebarRef}
-            id="sidebar-container"
             isMinimised={isMinimised}
-            isMobileOpen={isMobileOpen}
+            isMobileSidebarOpen={isMobileSidebarOpen}
         >
             {!isMobile && (
                 <SidebarToggleButton onClick={() => setisMinimised(!isMinimised)}>
@@ -115,8 +113,8 @@ export const Sidebar: React.FC<{ isMobileOpen: boolean; setIsMobileOpen: (open: 
                 </SidebarToggleButton>
             )}
 
-            <ContentWrapper isMinimised={isMinimised}>
-                {(!isMinimised || isMobileOpen) && (
+            <ContentWrapper isMinimised={isMinimised} isMobile={isMobile}>
+                {(!isMinimised || isMobileSidebarOpen) && (
                     <>
                         <SidebarHeader>
                             <Typography variant="h6">Chat History</Typography>
@@ -124,14 +122,7 @@ export const Sidebar: React.FC<{ isMobileOpen: boolean; setIsMobileOpen: (open: 
                         <List>
                             <ListItem disablePadding>
                                 <ListItemButton>
-                                    <ListItemText
-                                        primary="New Chat"
-                                        sx={{
-                                            overflow: "hidden",
-                                            textOverflow: "ellipsis",
-                                            whiteSpace: "nowrap",
-                                        }}
-                                    />
+                                    <StyledListItemText primary="New Chat" />
                                 </ListItemButton>
                             </ListItem>
                         </List>

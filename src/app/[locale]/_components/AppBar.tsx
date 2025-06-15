@@ -2,7 +2,7 @@
 
 import styled from "@emotion/styled";
 import { useTranslations, useLocale } from "next-intl";
-import { AppBar as MuiAppBar } from "@mui/material";
+import { AppBar as MuiAppBar, useMediaQuery, useTheme } from "@mui/material";
 import { Box, Typography, IconButton, Button } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState, useEffect } from "react";
@@ -30,10 +30,7 @@ const AppBarContainer = styled(Box)`
     padding: 0 ${({ theme }) => theme.spacing(2)};
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 10;
-
-    @media (min-width: 768px) {
-        width: 100%;
-    }
+    width: 100%;
 `;
 
 const LogoutButton = styled(Button)`
@@ -54,26 +51,17 @@ const AppBarTitle = styled(Typography)`
     text-align: center;
 `;
 
-export const AppBar: React.FC<{ isMobileOpen: boolean; setIsMobileOpen: (open: boolean) => void; }> = ({ isMobileOpen, setIsMobileOpen }) => {
-    const [isMobile, setIsMobile] = useState<boolean>(false);
+export const AppBar: React.FC<{ isMobileSidebarOpen: boolean; setIsMobileSidebarOpen: (open: boolean) => void; }> = ({ isMobileSidebarOpen, setIsMobileSidebarOpen }) => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     const t = useTranslations("HomePage");
     const locale = useLocale();
-
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth <= 768);
-        };
-
-        handleResize();
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
 
     return (
         <StyledAppBar position="static" data-testid="app-bar">
             <StyledToolbar>
                 {isMobile && (
-                    <IconButton onClick={() => setIsMobileOpen(!isMobileOpen)}>
+                    <IconButton onClick={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}>
                         <MenuIcon style={{ color: "white" }} />
                     </IconButton>
                 )}

@@ -26,7 +26,7 @@
         "interweave-autolink": "^5.1.2",
         "interweave-ssr": "^2.0.0",
         "next": "15.3.3",
-        "next-intl": "^3.26.5",
+        "next-intl": "^4.3.3",
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
         "zod": "^3.25.67"

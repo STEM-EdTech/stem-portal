@@ -8,5 +8,14 @@ export const theme = createTheme({
     typography: {
         fontFamily: 'var(--font-roboto)',
     },
-    borderRadius: '4px'
+    borderRadius: '4px',
+    breakpoints: {
+        values: {
+            xs: 0,
+            sm: 480,
+            md: 769,
+            lg: 1280,
+            xl: 1920,
+        },
+    },
 });

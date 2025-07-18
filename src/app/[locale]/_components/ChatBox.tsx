@@ -9,7 +9,7 @@ import { ChatArea } from './ChatArea';
 const ChatBoxContainer = styled(Box)`
     display: flex;
     flex-direction: column;
-    max-height: fit-content;
+    min-height: 100%;
     overflow: scroll;
 `;
 
@@ -32,6 +32,13 @@ const StyledTextField = styled(TextField)`
     & .MuiOutlinedInput-root {
         border-radius: ${({ theme }) => theme.spacing(3)};
     }
+`;
+
+const StyledIconButton = styled(IconButton, {
+    shouldForwardProp: (prop) => prop !== "isVisible",
+}) <{ isVisible: boolean; }>`
+    align-self: center;
+    visibility: ${({ isVisible }) => (isVisible ? "visible" : "hidden")};
 `;
 
 export const ChatBox = () => {
@@ -110,15 +117,15 @@ export const ChatBox = () => {
                             }
                         }}
                     />
-                    <IconButton
+                    <StyledIconButton
                         data-testid="send-message-button"
                         color="primary"
                         onClick={handleSend}
                         disabled={!message.trim()}
-                        sx={{ alignSelf: "center" }}
+                        isVisible={message.trim() !== ""}
                     >
                         <SendIcon />
-                    </IconButton>
+                    </StyledIconButton>
                 </InputContainer>
             </ChatBoxContainer>
             <Snackbar

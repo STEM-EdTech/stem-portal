@@ -6,11 +6,16 @@ import { useEffect, useRef } from "react";
 
 const ChatContainer = styled(Box)`
     flex: 1;
+    height: 100%;
     overflow-y: auto;
     padding: ${({ theme }) => theme.spacing(2)};
     display: flex;
     flex-direction: column;
     gap: ${({ theme }) => theme.spacing(2)};
+    @media (max-width: 768px) {
+        padding: ${({ theme }) => theme.spacing(1)};
+        gap: ${({ theme }) => theme.spacing(1)};
+    }
 `;
 
 interface MessageBubbleProps {
@@ -28,6 +33,10 @@ const MessageBubble = styled(Box, {
     color: ${({ theme, isUser }) =>
         isUser ? theme.palette.primary.contrastText : theme.palette.text.primary};
     align-self: ${({ isUser }) => isUser ? 'flex-end' : 'flex-start'};
+    @media (max-width: 768px) {
+        max-width: 90%;
+        padding: ${({ theme }) => theme.spacing(1.5)};
+    }
 `;
 
 interface ChatAreaProps {
